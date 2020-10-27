@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    
+    <!-- The Menu tab of the heading -->
+    <div class="common-top">
+        <div class="top-menu">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#" class="active">How it Works</a></li>
+                <li><a href="#" class="active">Agent Finder</a></li>
+                <li><a href="#" class="active">Contact Us</a></li>
+                <li><a href="#" class="active">LogIn</a></li>
+                <li><a href="#" class="active">SignUp</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="signin">
+        <h2 class="signin-head">SignIn</h2>
+        <form action="#">
+            <label for="username" class="username" onclick="textOnInputUsername()">Username</label>
+            <br>
+            <input type="text" onclick="textOnInputUsername()">
+            <br>
+            <label for="password" class="password" onclick="textOnInputPassword()">Password</label>
+            <br>
+            <input type="password" onclick="textOnInputPassword()">
+            <br><br>
+            <button>Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // making the title active in particular case
+        function activeTab()
+        {
+            active = document.getElementsByClassName('active')
+        
+            title = document.title
+            
+            if(title === active[0].innerHTML)
+            {
+                active[0].style.color = "lightblue"
+            }
+        }
+        activeTab();
+
+        // setting the username text on the username input tab
+        function textOnInputUsername()
+        {
+            username = document.getElementsByClassName('username')
+            decrease = 1;
+            add = 175
+            let stop = setInterval(()=>{
+                if(add >= 140)
+                {
+                    add = add - decrease;
+                    username[0].style.top = `${add}px`
+                }
+                else{
+                    clearInterval(stop)
+                }
+
+            },10)
+        }
+        function textOnInputPassword()
+        {
+            password = document.getElementsByClassName('password')
+            password[0].style.top = "200px"
+        }
+
+    </script>
+</body>
+</html>
